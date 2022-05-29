@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" 
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}"> 
+    <link rel="stylesheet" href="{% static 'css/media_queries.css' %}">
+    <link rel="stylesheet" href="{% static 'css/wepo-navbar.css' %}">
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}">
+    <link rel="stylesheet" href="{% static 'css/product.css' %}">
+    <link rel="icon" type="image/x-icon" href="{% static 'images/icon.ico' %}">
+    {% block link %}
+    {% endblock link %} 
+    <script src="https://kit.fontawesome.com/cd3abaa76f.js" crossorigin="anonymous"></script>
+    <title>  {% block title %} Welcome to WEPO {% endblock title %} </title>
+</head>
+<body>
+<header>
+    <nav>
+        <div class="nav-bar">
+            <div class="left">
+                <a href="{% url 'Home' %}"> <img class="wepo-logo-mini" src="{% static 'images/wepo_logo_full.png' %}" alt=""></a>
+            </div>
+            <!--<div class="center">
+                {%if user.prenom %}
+                <p id ="user-name">Welcome, {{user.prenom}}</p>
+                {%endif %}
+                <a href="{% url 'About' %}">A propos</a>
+                
+                <a href="{% url 'thankyou' %}">Products</a>
+                <a href="{% url 'ProductRegistration' %}">Devenir vendeur</a>
+                <a href="{% url 'login' %}">Login</a>         
+            </div>-->
+            <div class="right"> 
+                <a href="https://www.instagram.com/wearewepo" target="_blank" ><i class="fa-brands fa-instagram fa-xl"></i></a>
+                <a href="https://www.facebook.com/wearewepo" target="_blank" ><i class="fa-brands fa-facebook fa-xl"></i></a>
+                <a href="https://wa.me/821090261605" target="_blank" ><i class="fa-brands fa-whatsapp fa-xl"></i></a>
+
+            </div>
+        </div>
+    </nav>
+</header>
+
+<div class="hero-container">
+
+    <div class="hero">
+        <img id="bg1" src="{% static 'images/bg1.png' %}" alt="">
+        <div class="hero-text">
+            <h1 id="Welcome">Lekisa bor nayo cho!</h1>
+            <p>Nous vous aidons à vendre/acheter vos produits électroniques (telephones, télévisions, ordinateurs,etc) en toute securité, du bout de vos doigts.</p>
+            <ul id="core-value">
+                <li>Fiabilité</li>
+                <li>Rapidité</li>
+                <li>Qualité</li>
+            </ul>
+        </div>
+        <div class="hero-ilu">
+            <img class="App App1" src="{% static 'images/AppProdList.png' %}" alt="">
+            <img class="App App2" src="{% static 'images/AppProdList2.png' %}" alt="">
+            <img class="App App3" src="{% static 'images/AppProdList3.png' %}" alt="">
+        </div>
+    </div>
+</div>
+
+<!--<div class="products">
+    <div class="shopped-container">
+        <img class="shopped" src="{% static 'images/shopped.png' %}" alt="">
+    </div>
+    <div class="product-text">
+        <h4>Shop from many different places</h4>
+    </div>
+</div>
+-->
+
+<div class="register">
+    <div id="circle"></div>
+
+    <div class="form-text">
+        <h1>L'application arrive!</h1> 
+
+        <img id="appRelease" src="{% static 'images/AppRelease.png' %}" alt="">
+
+
+        <h3>Engegistrez-vous pour:</h3>
+        <ul>
+            <li>Obtenir la version beta de l'application</li>
+            <li>Restez informé des mise à jour</li>            
+            <li>Plusieurs autre benefices exclusif</li>
+        </ul>
+    </div>
+    <form class="form" action="" method="POST">
+        {% csrf_token %}
+        <label for="id_nom">
+            <input type="text" name="nom" id="id_nom" class="fff" placeholder="Nom">
+        </label>
+        <label for="id_phone">
+        <input type="text" name="phone" id="id_phone" class="fff" placeholder="Phone">
+        </label>
+        <input type="submit" id="submit" class="ffa" value="S'enregistrer">
+    </form>
+
+    <!--<a href="{% url 'ProductRegistration' %}"> Register here and become a seller</a>-->
+</div>
+
+
+<!
+<footer id="footer">
+    <div class="footer-text">
+        <a href="#">Termes d'utilisation</a>
+        <a href="#">Code de conduite de l'utilisateur</a>
+        <a href="mailto:wepo.cd@gmail.com"> Email us</a>
+    </div>
+    <p></p>
+    <p >Copyright WEPO 2022</p>
+</footer>
+</body>
+</html>
+
+
+
+
+{% include 'footer.html'%}
+{% endblock content %}
+
